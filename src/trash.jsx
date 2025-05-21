@@ -31,10 +31,10 @@ function getPreparedGoods(goods, { sortField, reversedField }) {
           return 0;
       }
     });
-  }
 
-  if (reversedField) {
-    preparedGoods.reverse();
+    if (reversedField) {
+      preparedGoods.reverse();
+    }
   }
 
   return preparedGoods;
@@ -47,7 +47,6 @@ export const App = () => {
     sortField,
     reversedField,
   });
-  const isChangedOrder = sortField !== '' || reversedField;
 
   return (
     <div className="section content">
@@ -80,18 +79,16 @@ export const App = () => {
           Reverse
         </button>
 
-        {isChangedOrder && (
-          <button
-            onClick={() => {
-              setSortField('');
-              setReversedField(false);
-            }}
-            type="button"
-            className="button is-danger is-light"
-          >
-            Reset
-          </button>
-        )}
+        <button
+          onClick={() => {
+            setSortField('');
+            setReversedField(false);
+          }}
+          type="button"
+          className="button is-danger is-light"
+        >
+          Reset
+        </button>
       </div>
       <ul>
         {visibleGoods.map(good => (
