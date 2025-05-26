@@ -15,7 +15,7 @@ export const goodsFromServer = [
   'Jam',
   'Garlic',
 ];
-function getPreparedGoods(goods, { sortField, reversedField }) {
+function getPreparedGoods(goods, { sortField, isReversed }) {
   const preparedGoods = [...goods];
 
   if (sortField) {
@@ -33,7 +33,7 @@ function getPreparedGoods(goods, { sortField, reversedField }) {
     });
   }
 
-  if (reversedField) {
+  if (isReversed) {
     preparedGoods.reverse();
   }
 
